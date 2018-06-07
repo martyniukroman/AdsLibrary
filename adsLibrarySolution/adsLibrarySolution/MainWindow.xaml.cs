@@ -22,7 +22,7 @@ namespace adsLibrarySolution {
         public MainWindow() {
             InitializeComponent();
 
-            
+           this.ShowMessageAsync("Alert", "andriy sosat");
 
         }
     }

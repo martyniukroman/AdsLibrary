@@ -8,9 +8,13 @@ namespace adsLibrarySolution
 {
     class Advert
     {
+        //Advert ID
         public int ID { get; set; }
+        //Advert Header
         public string Header { get; set; }
+        //Advert Info
         public string Information { get; set; }
+        //Advert Image
         public BitmapImage AdvertImage { get; set; }
     }
 }

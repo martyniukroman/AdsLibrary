@@ -1,12 +1,45 @@
-﻿<Window x:Class="adsLibrarySolution.MainWindow"
+﻿<Controls:MetroWindow x:Class="adsLibrarySolution.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:adsLibrarySolution"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        
+
+        <Grid.ColumnDefinitions>
+
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="100"/>
+
+        </Grid.ColumnDefinitions>
+
+        <ListView Name="ListViewMain">
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel HorizontalAlignment="Center"></WrapPanel>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <!-- stack panel here -->
+                </DataTemplate>
+            </ListView.ItemTemplate>
+
+        </ListView>
+
+        <Border BorderThickness="2" BorderBrush="LightGray" Width="100" Height="150">
+            <StackPanel Background="#333333">
+                <Label Foreground="LightGray" HorizontalAlignment="Center" Name="LabelTitle" FontSize="15">Title</Label>
+                <Image Margin="5" Height="80" Source="http://tiras.ru/uploads/posts/2015-03/1427189673_7a7d9fd81214.png"></Image>
+                <Label Foreground="LightGray" HorizontalAlignment="Center" Name="LabelAdditional" FontSize="10">additional</Label>
+            </StackPanel>
+        </Border>
+
+
     </Grid>
-</Window>
+
+</Controls:MetroWindow>

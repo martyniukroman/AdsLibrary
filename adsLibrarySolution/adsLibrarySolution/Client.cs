@@ -16,5 +16,7 @@ namespace adsLibrarySolution
         public string Email { get; set; }
         //Client e-mail
         public string Password { get; set; }
+        //List Adverts
+        List<Advert> Publications = new List<Advert>();
     }
 }

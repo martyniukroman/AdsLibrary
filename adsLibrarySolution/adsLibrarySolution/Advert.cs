@@ -16,5 +16,7 @@ namespace adsLibrarySolution
         public string Information { get; set; }
         //Advert Image
         public string AdvertImageSource { get; set; }
+        // Author
+        public Client Author { set; get; }
     }
 }

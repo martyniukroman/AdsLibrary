@@ -19,10 +19,21 @@ namespace adsLibrarySolution {
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : MahApps.Metro.Controls.MetroWindow {
+
+        List<Client> Clients = new List<Client>();
+        List<Advert> Adverts = new List<Advert>();
+        public Client CurrentUser = null;
+
         public MainWindow() {
             InitializeComponent();
-            LoginFlyout.IsOpen = true;
+           // LoginFlyout.IsOpen = true;
             //   this.ShowMessageAsync("Alert", "andriy sosat");
+
+            Client Yalovenko = new Client() { Name = "Yalovenko Vitaliy", Email = "nerevit17@gmail.com", Password = "admin" };
+
+            CurrentUser = Yalovenko;
+
+            Clients.Add(Yalovenko);
 
         }
 
@@ -40,6 +51,10 @@ namespace adsLibrarySolution {
 
         private void MenuItem_Click(object sender, RoutedEventArgs e) {
             LoginFlyout.IsOpen = true;
+
+            LabelLastUserName.Content = CurrentUser.Name;
+            LabelLastUserMail.Content = CurrentUser.Email;
+
         }
     }
 }

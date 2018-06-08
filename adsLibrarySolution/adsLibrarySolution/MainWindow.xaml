@@ -30,8 +30,8 @@
 
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <Border BorderThickness="2" BorderBrush="LightGray" Width="150" Height="200">
-                        <StackPanel Background="#333333">
+                    <Border BorderThickness="2" Grid.Row="1" BorderBrush="Gray" Width="150" Height="200">
+                        <StackPanel Background="#1c1c1c">
                             <Label Foreground="LightGray" HorizontalAlignment="Center" Name="LabelTitle" FontSize="20">Title</Label>
                             <Image Margin="5" Height="115" Source="http://tiras.ru/uploads/posts/2015-03/1427189673_7a7d9fd81214.png"></Image>
                             <Label Margin="0,-10,0,0" Foreground="LightGray" HorizontalAlignment="Center" Name="LabelAdditional" FontSize="15">additional</Label>
@@ -43,8 +43,8 @@
 
         </ListView>
 
-        <Border BorderThickness="2" Grid.Row="1" BorderBrush="LightGray" Width="150" Height="200">
-            <StackPanel Background="#333333">
+        <Border BorderThickness="2" Grid.Row="1" BorderBrush="Gray" Width="150" Height="200">
+            <StackPanel Background="#1c1c1c">
                 <Label Foreground="LightGray" HorizontalAlignment="Center" Name="LabelTitle" FontSize="20">Title</Label>
                 <Image Margin="5" Height="115" Source="http://tiras.ru/uploads/posts/2015-03/1427189673_7a7d9fd81214.png"></Image>
                 <Label Margin="0,-10,0,0" Foreground="LightGray" HorizontalAlignment="Center" Name="LabelAdditional" FontSize="15">additional</Label>
@@ -82,8 +82,8 @@
                                 </Grid.RowDefinitions>
 
                                 <Label Grid.Row="0" Foreground="GhostWhite " HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30">Is It You?</Label>
-                                <Label Grid.Row="1" Height="40" Foreground="LightGray" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20" Name="LabelLastUserName" >Yalovenko Vitaliy</Label>
-                                <Label Grid.Row="1" Height="25" Foreground="LightGray" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontSize="10" Name="LabelLastUserMail">nerevit17@gmail.com</Label>
+                                <Label Grid.Row="1" Height="40" Foreground="LightGray" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20" Name="LabelLastUserName" >Last User</Label>
+                                <Label Grid.Row="1" Margin="0,0,0,-2" Height="25" Foreground="LightGray" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontSize="10" Name="LabelLastUserMail">last_user@gmail.com</Label>
                                 <Button Click="ButtonLoginLast_Click" Grid.Row="3" Name="ButtonLoginLast" FontSize="20" Width="150" Height="40" Style="{DynamicResource MetroFlatButton}" >Login</Button>
 
                             </Grid>

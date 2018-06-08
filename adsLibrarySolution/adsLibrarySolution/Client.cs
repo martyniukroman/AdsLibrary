@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace adsLibrarySolution
 {
-    class Client
+    public class Client
     {
         //Client ID
         public int ID { get; set; }

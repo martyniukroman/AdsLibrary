@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Media.Imaging;
 namespace adsLibrarySolution
 {
-    class Advert
+    public class Advert
     {
         //Advert ID
         public int ID { get; set; }

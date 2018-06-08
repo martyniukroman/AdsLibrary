@@ -21,25 +21,25 @@ namespace adsLibrarySolution {
     public partial class MainWindow : MahApps.Metro.Controls.MetroWindow {
         public MainWindow() {
             InitializeComponent();
-
-        //   this.ShowMessageAsync("Alert", "andriy sosat");
+            LoginFlyout.IsOpen = true;
+            //   this.ShowMessageAsync("Alert", "andriy sosat");
 
         }
 
         private void ButtonLogin_Click(object sender, RoutedEventArgs e) {
-            LoginFlyout.IsOpen = true;
+            // yee bash
         }
 
         private void ButtonLoginLast_Click(object sender, RoutedEventArgs e) {
             // yee bash
         }
 
-        private void ButtonLogin_Click_1(object sender, RoutedEventArgs e) {
+        private void ButtonSingUp_Click(object sender, RoutedEventArgs e) {
             // yee bash
         }
 
-        private void ButtonSingUp_Click(object sender, RoutedEventArgs e) {
-
+        private void MenuItem_Click(object sender, RoutedEventArgs e) {
+            LoginFlyout.IsOpen = true;
         }
     }
 }

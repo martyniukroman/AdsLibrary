@@ -6,7 +6,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:adsLibrarySolution"
         mc:Ignorable="d"
-        Title="MainWindow" Height="500" Width="700">
+        Title="SukaBlyat" MinHeight="500" MinWidth="700"
+                   >
+    <Controls:MetroWindow.Flyouts>
+        <Controls:FlyoutsControl>
+
+        </Controls:FlyoutsControl>
+    </Controls:MetroWindow.Flyouts>
+
     <Grid>
 
         <Grid.ColumnDefinitions>
@@ -28,8 +35,9 @@
                     <Border BorderThickness="2" BorderBrush="LightGray" Width="150" Height="200">
                         <StackPanel Background="#333333">
                             <Label Foreground="LightGray" HorizontalAlignment="Center" Name="LabelTitle" FontSize="20">Title</Label>
-                            <Image Margin="5" Height="120" Source="http://tiras.ru/uploads/posts/2015-03/1427189673_7a7d9fd81214.png"></Image>
-                            <Label Foreground="LightGray" HorizontalAlignment="Center" Name="LabelAdditional" FontSize="15">additional</Label>
+                            <Image Margin="5" Height="115" Source="http://tiras.ru/uploads/posts/2015-03/1427189673_7a7d9fd81214.png"></Image>
+                            <Label Margin="0,-10,0,0" Foreground="LightGray" HorizontalAlignment="Center" Name="LabelAdditional" FontSize="15">additional</Label>
+                            <Label Margin="0,-10,0,0" Foreground="LightGray" HorizontalAlignment="Right" Name="LabelAuthor" FontSize="10">author</Label>
                         </StackPanel>
                     </Border>
                 </DataTemplate>
@@ -40,14 +48,104 @@
         <Border BorderThickness="2" BorderBrush="LightGray" Width="150" Height="200">
             <StackPanel Background="#333333">
                 <Label Foreground="LightGray" HorizontalAlignment="Center" Name="LabelTitle" FontSize="20">Title</Label>
-                <Image Margin="5" Height="120" Source="http://tiras.ru/uploads/posts/2015-03/1427189673_7a7d9fd81214.png"></Image>
-                <Label Foreground="LightGray" HorizontalAlignment="Center" Name="LabelAdditional" FontSize="15">additional</Label>
-            </StackPanel>       
+                <Image Margin="5" Height="115" Source="http://tiras.ru/uploads/posts/2015-03/1427189673_7a7d9fd81214.png"></Image>
+                <Label Margin="0,-10,0,0" Foreground="LightGray" HorizontalAlignment="Center" Name="LabelAdditional" FontSize="15">additional</Label>
+                <Label Margin="0,-10,0,0" Foreground="LightGray" HorizontalAlignment="Right" Name="LabelAuthor" FontSize="10">author</Label>
+            </StackPanel>
         </Border>
 
-        <Button Margin="5" Grid.Column="1" Height="30" Style="{DynamicResource MetroFlatButton}"> text </Button>
+        <Button Name="ButtonGetInto" Margin="5" Grid.Column="1" Height="30" Click="ButtonLogin_Click" Style="{DynamicResource MetroFlatButton}">Get into</Button>
 
+
+        <Controls:Flyout Name="LoginFlyout" Grid.ColumnSpan="1" Grid.Column="0" Position="Left" Width="250">
+            <!-- Your custom content here -->
+            <Grid Name="GridFlyoutInner">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+
+
+                <TabControl Grid.RowSpan="2" Name="TabControlGetInto">
+
+                    <TabItem>
+                        <TabItem.Header>
+                            Last
+                        </TabItem.Header>
+                        <TabItem.Content>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="50" />
+                                    <RowDefinition Height="50" />
+                                    <RowDefinition Height="1*" />
+                                    <RowDefinition Height="50" />
+                                </Grid.RowDefinitions>
+
+                                <Label Grid.Row="0" Foreground="GhostWhite " HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30">Is It You?</Label>
+                                <Label Grid.Row="1" Height="40" Foreground="LightGray" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20" Name="LabelLastUserName" >Yalovenko Vitaliy</Label>
+                                <Label Grid.Row="1" Height="25" Foreground="LightGray" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontSize="10" Name="LabelLastUserMail">nerevit17@gmail.com</Label>
+                                <Button Click="ButtonLoginLast_Click" Grid.Row="3" Name="ButtonLoginLast" FontSize="20" Width="150" Height="40" Style="{DynamicResource MetroFlatButton}" >Login</Button>
+                                
+                            </Grid>
+                        </TabItem.Content>
+                    </TabItem>
+
+                    <TabItem>
+                        <TabItem.Header>
+                            Log in
+                        </TabItem.Header>
+                        <TabItem.Content>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="50" />
+                                    <RowDefinition Height="50" />
+                                    <RowDefinition Height="50" />
+                                    <RowDefinition Height="1*" />
+                                    <RowDefinition Height="50" />
+                                </Grid.RowDefinitions>
+
+                                <Label Grid.Row="0" Foreground="GhostWhite " HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="17">Enter your mail and password</Label>
+                                <TextBox Name="TextBoxLoginMail" Grid.Row="1" Width="200" Height="30" FontSize="15" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="Mail"/>
+                                <TextBox Name="TextBoxLoginPass" Grid.Row="2" Width="200" Height="30" FontSize="15" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="Password"/>
+                                <Button Click="ButtonLogin_Click_1" Grid.Row="4" Name="ButtonLogin" FontSize="20" Width="150" Height="40" Style="{DynamicResource MetroFlatButton}" >Log in</Button>
+
+                            </Grid>
+                        </TabItem.Content>
+                    </TabItem>
+
+                    <TabItem>
+                        <TabItem.Header>
+                            Sing up
+                        </TabItem.Header>
+                        <TabItem.Content>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="50" />
+                                    <RowDefinition Height="50" />
+                                    <RowDefinition Height="50" />
+                                    <RowDefinition Height="50" />
+                                    <RowDefinition Height="1*" />
+                                    <RowDefinition Height="50" />
+                                </Grid.RowDefinitions>
+
+                                <Label Grid.Row="0" Foreground="GhostWhite " HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30">Create account</Label>
+                                <TextBox Name="TextBoxSingName" Grid.Row="1" Width="200" Height="30" FontSize="15" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="Name"/>
+                                <TextBox Name="TextBoxSingMail" Grid.Row="2" Width="200" Height="30" FontSize="15" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="Mail"/>
+                                <TextBox Name="TextBoxSingPass" Grid.Row="3" Width="200" Height="30" FontSize="15" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="Password"/>
+                                <Button Click="ButtonSingUp_Click" Grid.Row="5" Name="ButtonSingUp" FontSize="20" Width="150" Height="40" Style="{DynamicResource MetroFlatButton}" >Sing up</Button>
+
+                            </Grid> 
+                        </TabItem.Content>
+                    </TabItem>
+
+                </TabControl>
+
+            </Grid>
+        </Controls:Flyout>
 
     </Grid>
+
+
 
 </Controls:MetroWindow>

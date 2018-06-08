@@ -15,6 +15,6 @@ namespace adsLibrarySolution
         //Advert Info
         public string Information { get; set; }
         //Advert Image
-        public BitmapImage AdvertImage { get; set; }
+        public string AdvertImageSource { get; set; }
     }
 }

@@ -22,7 +22,23 @@ namespace adsLibrarySolution {
         public MainWindow() {
             InitializeComponent();
 
-           this.ShowMessageAsync("Alert", "andriy sosat");
+        //   this.ShowMessageAsync("Alert", "andriy sosat");
+
+        }
+
+        private void ButtonLogin_Click(object sender, RoutedEventArgs e) {
+            LoginFlyout.IsOpen = true;
+        }
+
+        private void ButtonLoginLast_Click(object sender, RoutedEventArgs e) {
+            // yee bash
+        }
+
+        private void ButtonLogin_Click_1(object sender, RoutedEventArgs e) {
+            // yee bash
+        }
+
+        private void ButtonSingUp_Click(object sender, RoutedEventArgs e) {
 
         }
     }

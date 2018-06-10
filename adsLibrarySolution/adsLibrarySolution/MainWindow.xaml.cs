@@ -33,8 +33,6 @@ namespace adsLibrarySolution {
 
             Client Yalovenko = new Client() { Name = "Yalovenko Vitaliy", Email = "nerevit17@gmail.com", Password = "admin" };
 
-            CurrentUser = Yalovenko;
-
             Clients.Add(Yalovenko);
 
         }
@@ -54,6 +52,7 @@ namespace adsLibrarySolution {
                 LabelUntilLogin.Content = null;
 
             // yee bash
+            // Береш останього list.last();
         }
 
         private void ButtonSingUp_Click(object sender, RoutedEventArgs e) {

@@ -28,6 +28,7 @@ namespace adsLibrarySolution
         public int IDgenerator = 1;
         public MainWindow()
         {
+            
             InitializeComponent();
             // LoginFlyout.IsOpen = true;
             //   this.ShowMessageAsync("Alert", "andriy sosat"); // нахуй іди
@@ -53,6 +54,7 @@ namespace adsLibrarySolution
                     {
                         ClientFound = true;
                         this.ShowMessageAsync("Notification", "Login successfull.");
+                        LabelUntilLogin.Visibility = Visibility.Hidden;
                         TextBoxLoginMail.Text = "";
                         TextBoxLoginPass.Text = "";
                         CurrentUser = LoginClient;
@@ -67,7 +69,7 @@ namespace adsLibrarySolution
                                     ListViewMain.Items.Clear();
 
                                 }
-                                ListViewMain.Items.Add(Ad);                               //adding logged on  user ads to ListView
+                                Adverts.Add(Ad);                     //adding logged on  user ads to ListView
                             }
                         }
                     }
@@ -97,8 +99,7 @@ namespace adsLibrarySolution
             if (TextBoxSingMail.Text != "" && TextBoxSingName.Text != "" && TextBoxSingPass.Text != "") //checking if all fields have data
             {
                 Client TempClient = new Client();                              //creating temp user
-                IDgenerator++;
-                TempClient.ID = IDgenerator;
+                TempClient.ID = ++IDgenerator;
                 TempClient.Email = TextBoxSingMail.Text;                       //  -----------------------
                 TempClient.Password = TextBoxSingPass.Text;                    //    copying data from text boxes
                 TempClient.Name = TextBoxSingName.Text;                        //  -----------------------
@@ -128,7 +129,17 @@ namespace adsLibrarySolution
             }
             else
             {
-
+                AddingWindow addingWindow = new AddingWindow();
+                if(addingWindow.ShowDialog() == true)
+                {
+                    Advert NewAdvert = new Advert();
+                    NewAdvert.AdvertImageSource = addingWindow.TextBoxImageSource.Text;
+                    NewAdvert.Author = CurrentUser;
+                    NewAdvert.Header = addingWindow.TextBoxTitle.Text;
+                    NewAdvert.ID = ++IDgenerator;
+                    NewAdvert.Information = addingWindow.TextBoxImageAdditional.Text;
+                    Adverts.Add(NewAdvert);
+                }
             }
 
         }

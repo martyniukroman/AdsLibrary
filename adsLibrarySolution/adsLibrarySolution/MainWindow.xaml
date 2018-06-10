@@ -43,7 +43,7 @@
 
         </ListView>
 
-        <Label Foreground="Gray" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" Grid.Row="1" Name="LabelUntilLogin">There is no any active sessions, login to continue... </Label>
+        <Label Foreground="Gray" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" Grid.Row="1" Name="LabelUntilLogin">There is no active sessions, login to continue... </Label>
 <!--
         <Border BorderThickness="2" Grid.Row="1" BorderBrush="Gray" Width="150" Height="200">
             <StackPanel Background="#1c1c1c">

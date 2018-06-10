@@ -46,7 +46,24 @@ namespace adsLibrarySolution {
         }
 
         private void ButtonSingUp_Click(object sender, RoutedEventArgs e) {
-            // yee bash
+            
+            if(TextBoxSingMail.Text!="" && TextBoxSingName.Text!="" && TextBoxSingPass.Text!="")
+            {
+                Client TempClient = new Client();
+                TempClient.Email = TextBoxSingMail.Text;
+                TempClient.Password = TextBoxSingPass.Text;
+                TempClient.Name = TextBoxSingName.Text;
+                TextBoxSingName.Text = "";
+                TextBoxSingPass.Text = "";
+                TextBoxSingMail.Text = "";
+                Clients.Add(TempClient);
+                MessageBox.Show("Sign up successfull");
+            }
+             else
+            {
+                MessageBox.Show("All fields must be filled!");
+            }
+            
         }
 
         private void MenuItem_Click(object sender, RoutedEventArgs e) {

@@ -139,6 +139,7 @@ namespace adsLibrarySolution
                     NewAdvert.ID = ++IDgenerator;
                     NewAdvert.Information = addingWindow.TextBoxImageAdditional.Text;
                     Adverts.Add(NewAdvert);
+                    ListViewMain.Items.Refresh();
                 }
             }
 

@@ -42,17 +42,25 @@ namespace adsLibrarySolution {
         private void ButtonLogin_Click(object sender, RoutedEventArgs e) {
 
             if (CurrentUser != null)
-                LabelUntilLogin.Content = "";
+                LabelUntilLogin.Content = null;
             
 
             // yee bash
         }
 
         private void ButtonLoginLast_Click(object sender, RoutedEventArgs e) {
+
+            if (CurrentUser != null)
+                LabelUntilLogin.Content = null;
+
             // yee bash
         }
 
         private void ButtonSingUp_Click(object sender, RoutedEventArgs e) {
+
+            if (CurrentUser != null)
+                LabelUntilLogin.Content = null;
+
             // yee bash
         }
 

@@ -55,7 +55,7 @@ namespace adsLibrarySolution
                         MessageBox.Show("Logon successfull!");
                         foreach (Advert Ad in Adverts)                                                            //looking for logged user adverts in list of adverts
                         {
-                            if (Ad.Author.ID == LoginClient.ID)              
+                            if (Ad.Author.ID == LoginClient.ID)
                             {
                                 if (Adverts != null)
                                 {
@@ -85,15 +85,6 @@ namespace adsLibrarySolution
             }
         }
 
-        private void ButtonLogin_Click(object sender, RoutedEventArgs e) {
-
-            if (CurrentUser != null)
-                LabelUntilLogin.Content = null;
-            
-
-            // yee bash
-        }
-
         private void ButtonSingUp_Click(object sender, RoutedEventArgs e)
         {
 
@@ -115,13 +106,6 @@ namespace adsLibrarySolution
             {
                 MessageBox.Show("All fields must be filled!");
             }
-
-        private void ButtonSingUp_Click(object sender, RoutedEventArgs e) {
-
-            if (CurrentUser != null)
-                LabelUntilLogin.Content = null;
-
-            // yee bash
         }
 
         private void MenuItem_Click(object sender, RoutedEventArgs e)

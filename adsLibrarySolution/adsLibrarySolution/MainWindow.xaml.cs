@@ -32,6 +32,8 @@ namespace adsLibrarySolution
             // LoginFlyout.IsOpen = true;
             //   this.ShowMessageAsync("Alert", "andriy sosat"); // нахуй іди
 
+            ListViewMain.ItemsSource = Adverts;
+
             Client Yalovenko = new Client() { Name = "Yalovenko Vitaliy", Email = "nerevit17@gmail.com", Password = "admin" };
             Yalovenko.ID = IDgenerator;
             CurrentUser = Yalovenko;
@@ -83,8 +85,12 @@ namespace adsLibrarySolution
             }
         }
 
-        private void ButtonLoginLast_Click(object sender, RoutedEventArgs e)
-        {
+        private void ButtonLogin_Click(object sender, RoutedEventArgs e) {
+
+            if (CurrentUser != null)
+                LabelUntilLogin.Content = null;
+            
+
             // yee bash
         }
 
@@ -110,6 +116,12 @@ namespace adsLibrarySolution
                 MessageBox.Show("All fields must be filled!");
             }
 
+        private void ButtonSingUp_Click(object sender, RoutedEventArgs e) {
+
+            if (CurrentUser != null)
+                LabelUntilLogin.Content = null;
+
+            // yee bash
         }
 
         private void MenuItem_Click(object sender, RoutedEventArgs e)

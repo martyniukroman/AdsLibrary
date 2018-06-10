@@ -29,7 +29,6 @@ namespace adsLibrarySolution {
             // LoginFlyout.IsOpen = true;
             //   this.ShowMessageAsync("Alert", "andriy sosat");
 
-
             ListViewMain.ItemsSource = Adverts;
 
             Client Yalovenko = new Client() { Name = "Yalovenko Vitaliy", Email = "nerevit17@gmail.com", Password = "admin" };
@@ -41,6 +40,11 @@ namespace adsLibrarySolution {
         }
 
         private void ButtonLogin_Click(object sender, RoutedEventArgs e) {
+
+            if (CurrentUser != null)
+                LabelUntilLogin.Content = "";
+            
+
             // yee bash
         }
 

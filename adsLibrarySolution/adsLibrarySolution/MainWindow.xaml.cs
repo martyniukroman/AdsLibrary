@@ -66,8 +66,6 @@ namespace adsLibrarySolution {
         private void MenuItem_Click(object sender, RoutedEventArgs e) {
             LoginFlyout.IsOpen = true;
 
-            LabelLastUserName.Content = CurrentUser.Name;
-            LabelLastUserMail.Content = CurrentUser.Email;
 
         }
 

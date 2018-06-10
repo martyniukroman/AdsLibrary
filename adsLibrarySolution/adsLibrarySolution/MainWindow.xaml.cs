@@ -116,5 +116,26 @@ namespace adsLibrarySolution
             LabelLastUserMail.Content = CurrentUser.Email;
 
         }
+
+        private void MenuAddAdvert_Click(object sender, RoutedEventArgs e) {
+            if (CurrentUser == null) {
+                this.ShowMessageAsync("Alert", "There is no any active sessions, login to continue");
+                return;
+            }
+            else {
+
+            }
+            
+        }
+
+        private void MenuDeleteAdvert_Click(object sender, RoutedEventArgs e) {
+            if (CurrentUser == null) {
+                this.ShowMessageAsync("Alert", "There is no any active sessions, login to continue");
+                return;
+            }
+            else {
+
+            }
+        }
     }
 }

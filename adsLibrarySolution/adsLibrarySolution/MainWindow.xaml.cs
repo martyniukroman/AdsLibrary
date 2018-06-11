@@ -13,7 +13,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
+using System.Xml;
+using System.Xml.Serialization;
+using System.IO;
 namespace adsLibrarySolution
 {
     /// <summary>
@@ -28,19 +30,31 @@ namespace adsLibrarySolution
         public int IDgenerator = 1;
         public MainWindow()
         {
-            
+
             InitializeComponent();
-            // LoginFlyout.IsOpen = true;
-            //   this.ShowMessageAsync("Alert", "andriy sosat"); // нахуй іди
-
+            LoginFlyout.IsOpen = true;
+            //this.ShowMessageAsync("Alert", "andriy sosat"); // нахуй іди
+            string ClientListPath = System.IO.Path.Combine(Environment.CurrentDirectory, "ClientsList.xml");
+            string AdvertListPath = System.IO.Path.Combine(Environment.CurrentDirectory, "AdvertsList.xml");
+            XmlSerializer sClients = new XmlSerializer(typeof(List<Client>));
+            XmlSerializer sAdverts = new XmlSerializer(typeof(List<Advert>));
+            using (StreamReader sr = new StreamReader(ClientListPath))
+            {
+                Clients = (sClients.Deserialize(sr)) as List<Client>;
+            }
+            using (StreamReader sr = new StreamReader(AdvertListPath))
+            {
+                Adverts = (sAdverts.Deserialize(sr)) as List<Advert>;
+            }
+            if (Clients.Count != 0)
+            {
+                LabelLastUserName.Content = Clients.Last().Name;
+                LabelLastUserMail.Content = Clients.Last().Email;
+            }
             ListViewMain.ItemsSource = Adverts;
+    
 
-            Client Yalovenko = new Client() { Name = "Yalovenko Vitaliy", Email = "nerevit17@gmail.com", Password = "admin" };
-            Yalovenko.ID = IDgenerator;
-            CurrentUser = Yalovenko;
-           // this.Title = CurrentUser.Name;
 
-            //  Clients.Add(Yalovenko);
 
         }
 
@@ -55,12 +69,12 @@ namespace adsLibrarySolution
                     {
                         ClientFound = true;
                         this.ShowMessageAsync("Notification", "Login successfull.");
+                        LabelUntilLogin.Content = "";
                         TextBoxLoginMail.Text = "";
                         TextBoxLoginPass.Text = "";
                         CurrentUser = LoginClient;
                         LabelLastUserName.Content = CurrentUser.Name;
                         LabelLastUserMail.Content = CurrentUser.Email;
-                        LabelUntilLogin.Content = null;
                         this.Title = CurrentUser.Name;
                         foreach (Advert Ad in Adverts)                                                            //looking for logged user adverts in list of adverts
                         {
@@ -109,7 +123,6 @@ namespace adsLibrarySolution
                 TextBoxSingMail.Text = "";                                     //  -----------------------
                 Clients.Add(TempClient);                                       //adding client lo list of clients
                 CurrentUser = TempClient;
-                LabelUntilLogin.Content = "";
                 this.ShowMessageAsync("Notification", "Sign up successfull");
             }
             else
@@ -165,7 +178,34 @@ namespace adsLibrarySolution
 
         private void ButtonLoginLast_Click(object sender, RoutedEventArgs e)
         {
-            
+            if(TextBoxLoginPassLast.Text==Clients.Last().Password)
+            {
+                CurrentUser = Clients.Last();
+                this.Title = CurrentUser.Name;
+            }
+        }
+
+        private void MetroWindow_Closed(object sender, EventArgs e)
+        {
+            string ClientListPath = System.IO.Path.Combine(Environment.CurrentDirectory, "ClientsList.xml");
+            string AdvertListPath = System.IO.Path.Combine(Environment.CurrentDirectory, "AdvertsList.xml");
+            XmlSerializer sClients = new XmlSerializer(typeof(List<Client>));
+            XmlSerializer sAdverts = new XmlSerializer(typeof(List<Advert>));
+            if(Clients!=null)
+            {
+                using (StreamWriter sw = new StreamWriter(ClientListPath))
+                {
+                    sClients.Serialize(sw, Clients);
+                }
+            }
+            if(Adverts!=null)
+            {
+                using (StreamWriter sw = new StreamWriter(AdvertListPath))
+                {
+                    sAdverts.Serialize(sw, Adverts);
+                }
+            }
+
         }
     }
 }

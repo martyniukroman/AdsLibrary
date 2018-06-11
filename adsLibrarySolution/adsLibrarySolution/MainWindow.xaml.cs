@@ -76,17 +76,17 @@ namespace adsLibrarySolution
                         LabelLastUserName.Content = CurrentUser.Name;
                         LabelLastUserMail.Content = CurrentUser.Email;
                         this.Title = CurrentUser.Name;
-                        foreach (Advert Ad in Adverts)                                                            //looking for logged user adverts in list of adverts
-                        {
-                            if (Ad.Author.ID == LoginClient.ID)
-                            {
-                                if (Adverts != null)
-                                {
-                                    ListViewMain.Items.Clear();
-                                }
-                                Adverts.Add(Ad);                     //adding logged on user ads to ListView
-                            }
-                        }
+                        //foreach (Advert Ad in Adverts)                                                            //looking for logged user adverts in list of adverts
+                        //{
+                        //    if (Ad.Author.ID == LoginClient.ID)
+                        //    {
+                        //        if (Adverts != null)
+                        //        {
+                        //            ListViewMain.Items.Clear();
+                        //        }
+                        //        Adverts.Add(Ad);                     //adding logged on user ads to ListView
+                        //    }
+                        //}
                     }
                 }
             }
@@ -140,7 +140,6 @@ namespace adsLibrarySolution
         {
             if (CurrentUser == null)
             {
-                this.Title = CurrentUser.Name;
                 this.ShowMessageAsync("Alert", "There is no active sessions, login to continue");
                 return;
             }
@@ -167,21 +166,22 @@ namespace adsLibrarySolution
             if (CurrentUser == null)
             {
                 this.ShowMessageAsync("Alert", "There is no active sessions, login to continue");
-                return;
+                return;    
             }
             else
             {
-                DeletingWindow DeleteWindow = new DeletingWindow(Adverts,CurrentUser);
+                DeletingWindow del = new DeletingWindow();
+                del.ShowDialog();
             }
         }
 
-        private void ButtonLoginLast_Click(object sender, RoutedEventArgs e)
-        {
-            if(Clients.Last().Password==TextBoxLoginPassLast.Text)
-            {
+        private async void ButtonLoginLast_Click(object sender, RoutedEventArgs e) {
+            //   MessageBox.Show("suck");
+            if (Clients.Last().Password == TextBoxLoginPassLast.Text) {
                 CurrentUser = Clients.Last();
                 this.Title = CurrentUser.Name;
-                this.ShowMessageAsync("Notification", "Login successfull");
+                LabelUntilLogin.Content = "";
+                await this.ShowMessageAsync("Notification", "Login successfull");
             }
         }
 

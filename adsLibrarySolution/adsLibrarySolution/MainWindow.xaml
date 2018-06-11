@@ -93,14 +93,14 @@
                                 <Label Grid.Row="1" Margin="0,0,0,-2" Height="25" Foreground="LightGray" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontSize="10" Name="LabelLastUserMail">last_user@gmail.com</Label>
                                 <Label Grid.Row="2" Height="40" Foreground="LightGray" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20" >Confirm your password</Label>
                                 <TextBox Name="TextBoxLoginPassLast" Grid.Row="3" Width="200" Height="30" FontSize="15" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="Password"/>
-                                <Button Grid.Row="5" Name="ButtonLoginLast" FontSize="20" Width="150" Height="40" Style="{DynamicResource MetroFlatButton}" >Login</Button>
+                                <Button Grid.Row="5" Name="ButtonLoginLast" FontSize="20" Width="150" Height="40" Style="{DynamicResource MetroFlatButton}" Click="ButtonLoginLast_Click">Login</Button>
 
                             </Grid>
                         </TabItem.Content>
                     </TabItem>
 
                     <TabItem>
-                        <TabItem.Header>
+                        <TabItem.Header>  
                             Log in
                         </TabItem.Header>
                         <TabItem.Content>
@@ -124,7 +124,7 @@
 
                     <TabItem>
                         <TabItem.Header>
-                            Sing up
+                            Sign up
                         </TabItem.Header>
                         <TabItem.Content>
                             <Grid>
@@ -141,7 +141,7 @@
                                 <TextBox Name="TextBoxSingName" Grid.Row="1" Width="200" Height="30" FontSize="15" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="Name"/>
                                 <TextBox Name="TextBoxSingMail" Grid.Row="2" Width="200" Height="30" FontSize="15" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="Mail"/>
                                 <TextBox Name="TextBoxSingPass" Grid.Row="3" Width="200" Height="30" FontSize="15" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="Password"/>
-                                <Button Click="ButtonSingUp_Click" Grid.Row="5" Name="ButtonSingUp" FontSize="20" Width="150" Height="40" Style="{DynamicResource MetroFlatButton}" >Sing up</Button>
+                                <Button Click="ButtonSingUp_Click" Grid.Row="5" Name="ButtonSingUp" FontSize="20" Width="150" Height="40" Style="{DynamicResource MetroFlatButton}" >Sign up</Button>
 
                             </Grid>
                         </TabItem.Content>

@@ -21,5 +21,9 @@ namespace adsLibrarySolution {
             InitializeComponent();
            
         }
+
+        private void ButtonDelete_Click(object sender, RoutedEventArgs e) {
+
+        }
     }
 }

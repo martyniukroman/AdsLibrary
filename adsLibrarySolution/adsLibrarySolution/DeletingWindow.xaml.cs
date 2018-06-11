@@ -17,8 +17,9 @@ namespace adsLibrarySolution {
     /// Interaction logic for DeletingWindow.xaml
     /// </summary>
     public partial class DeletingWindow : Window {
-        public DeletingWindow() {
+        public DeletingWindow(List<Advert> adverts,Client CurrentUser) {
             InitializeComponent();
+           
         }
     }
 }

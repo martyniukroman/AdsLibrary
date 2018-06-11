@@ -166,13 +166,12 @@ namespace adsLibrarySolution
         {
             if (CurrentUser == null)
             {
-                this.Title = CurrentUser.Name;
                 this.ShowMessageAsync("Alert", "There is no active sessions, login to continue");
                 return;
             }
             else
             {
-
+                DeletingWindow DeleteWindow = new DeletingWindow(Adverts,CurrentUser);
             }
         }
 

@@ -32,7 +32,7 @@ namespace adsLibrarySolution
         {
 
             InitializeComponent();
-            LoginFlyout.IsOpen = true;
+           // LoginFlyout.IsOpen = true;
             //this.ShowMessageAsync("Alert", "andriy sosat"); // нахуй іди
             string ClientListPath = System.IO.Path.Combine(Environment.CurrentDirectory, "ClientsList.xml");
             string AdvertListPath = System.IO.Path.Combine(Environment.CurrentDirectory, "AdvertsList.xml");
@@ -54,8 +54,6 @@ namespace adsLibrarySolution
             ListViewMain.ItemsSource = Adverts;
     
 
-
-
         }
 
         private void ButtonLogin_Click(object sender, RoutedEventArgs e)
@@ -68,7 +66,6 @@ namespace adsLibrarySolution
                     if (LoginClient.Email == TextBoxLoginMail.Text && LoginClient.Password == TextBoxLoginPass.Text)    //checking if login textboxes are filled
                     {
                         ClientFound = true;
-                        this.ShowMessageAsync("Notification", "Login successfull.");
                         LabelUntilLogin.Content = "";
                         TextBoxLoginMail.Text = "";
                         TextBoxLoginPass.Text = "";
@@ -170,8 +167,10 @@ namespace adsLibrarySolution
             }
             else
             {
-                DeletingWindow del = new DeletingWindow();
+                DeletingWindow del = new DeletingWindow(Adverts, CurrentUser);
                 del.ShowDialog();
+                this.Adverts = del.LocalAdverts;
+                ListViewMain.Items.Refresh();
             }
         }
 
@@ -181,7 +180,6 @@ namespace adsLibrarySolution
                 CurrentUser = Clients.Last();
                 this.Title = CurrentUser.Name;
                 LabelUntilLogin.Content = "";
-                await this.ShowMessageAsync("Notification", "Login successfull");
             }
         }
 

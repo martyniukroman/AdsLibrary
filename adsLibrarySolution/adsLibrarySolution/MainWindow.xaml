@@ -88,7 +88,7 @@
                                 <Label Grid.Row="0" Foreground="GhostWhite " HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30">Is It You?</Label>
                                 <Label Grid.Row="1" Height="40" Foreground="LightGray" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20" Name="LabelLastUserName" >Last User</Label>
                                 <Label Grid.Row="1" Margin="0,0,0,-2" Height="25" Foreground="LightGray" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontSize="10" Name="LabelLastUserMail">last_user@gmail.com</Label>
-                                <Button Click="ButtonLoginLast_Click" Grid.Row="3" Name="ButtonLoginLast" FontSize="20" Width="150" Height="40" Style="{DynamicResource MetroFlatButton}" >Login</Button>
+                                <Button Grid.Row="3" Name="ButtonLoginLast" FontSize="20" Width="150" Height="40" Style="{DynamicResource MetroFlatButton}" >Login</Button>
 
                             </Grid>
                         </TabItem.Content>

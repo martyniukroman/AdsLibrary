@@ -1,15 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ArrayOfAdvert xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <Advert>
-    <ID>2</ID>
-    <Header>Zalupa</Header>
-    <Information>Pidor</Information>
-    <AdvertImageSource>https://www.lentata.com/image_cache/3/7/5/b/9/375b9fa0ac505033fcaba34f7a2306134e41a499.jpeg?v5</AdvertImageSource>
-    <Author>
-      <ID>2</ID>
-      <Name>Andrii Usmanaev</Name>
-      <Email>andrei.usmanaev@gmail.com</Email>
-      <Password>Usmanaev123</Password>
-    </Author>
-  </Advert>
+  
 </ArrayOfAdvert>

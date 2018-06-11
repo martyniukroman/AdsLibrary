@@ -179,10 +179,11 @@ namespace adsLibrarySolution
 
         private void ButtonLoginLast_Click(object sender, RoutedEventArgs e)
         {
-            if(TextBoxLoginPassLast.Text==Clients.Last().Password)
+            if(Clients.Last().Password==TextBoxLoginPassLast.Text)
             {
                 CurrentUser = Clients.Last();
                 this.Title = CurrentUser.Name;
+                this.ShowMessageAsync("Notification", "Login successfull");
             }
         }
 

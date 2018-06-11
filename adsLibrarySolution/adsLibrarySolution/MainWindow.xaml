@@ -31,7 +31,7 @@
 
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <Border BorderThickness="2" Grid.Row="1" BorderBrush="Gray" Width="150" Height="200">
+                    <Border Margin="10" BorderThickness="2" Grid.Row="1" BorderBrush="Gray" Width="150" Height="200">
                         <StackPanel Background="#1c1c1c">
                             <Label Foreground="LightGray" HorizontalAlignment="Center" Content="{Binding Path=Header}" Name="LabelTitle" FontSize="20"></Label>
                             <Image Margin="5" Height="115" Source="{Binding Path=AdvertImageSource}"></Image>
@@ -82,6 +82,8 @@
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="50" />
                                     <RowDefinition Height="50" />
+                                    <RowDefinition Height="50" />
+                                    <RowDefinition Height="50" />
                                     <RowDefinition Height="1*" />
                                     <RowDefinition Height="50" />
                                 </Grid.RowDefinitions>
@@ -89,7 +91,9 @@
                                 <Label Grid.Row="0" Foreground="GhostWhite " HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30">Is It You?</Label>
                                 <Label Grid.Row="1" Height="40" Foreground="LightGray" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20" Name="LabelLastUserName" >Last User</Label>
                                 <Label Grid.Row="1" Margin="0,0,0,-2" Height="25" Foreground="LightGray" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontSize="10" Name="LabelLastUserMail">last_user@gmail.com</Label>
-                                <Button Grid.Row="3" Name="ButtonLoginLast" FontSize="20" Width="150" Height="40" Style="{DynamicResource MetroFlatButton}" >Login</Button>
+                                <Label Grid.Row="2" Height="40" Foreground="LightGray" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20" >Confirm your password</Label>
+                                <TextBox Name="TextBoxLoginPassLast" Grid.Row="3" Width="200" Height="30" FontSize="15" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="Password"/>
+                                <Button Grid.Row="5" Name="ButtonLoginLast" FontSize="20" Width="150" Height="40" Style="{DynamicResource MetroFlatButton}" >Login</Button>
 
                             </Grid>
                         </TabItem.Content>

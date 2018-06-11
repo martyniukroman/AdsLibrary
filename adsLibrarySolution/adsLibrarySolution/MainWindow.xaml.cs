@@ -142,7 +142,6 @@ namespace adsLibrarySolution
             {
                 this.ShowMessageAsync("Alert", "There is no active sessions, login to continue");
                 return;
-                this.Title = CurrentUser.Name;
             }
             else
             {
@@ -167,8 +166,7 @@ namespace adsLibrarySolution
             if (CurrentUser == null)
             {
                 this.ShowMessageAsync("Alert", "There is no active sessions, login to continue");
-                return;
-                this.Title = CurrentUser.Name;
+                return;    
             }
             else
             {
@@ -177,13 +175,13 @@ namespace adsLibrarySolution
             }
         }
 
-        private void ButtonLoginLast_Click(object sender, RoutedEventArgs e)
-        {
-            if(Clients.Last().Password==TextBoxLoginPassLast.Text)
-            {
+        private async void ButtonLoginLast_Click(object sender, RoutedEventArgs e) {
+            //   MessageBox.Show("suck");
+            if (Clients.Last().Password == TextBoxLoginPassLast.Text) {
                 CurrentUser = Clients.Last();
                 this.Title = CurrentUser.Name;
-                this.ShowMessageAsync("Notification", "Login successfull");
+                LabelUntilLogin.Content = "";
+                await this.ShowMessageAsync("Notification", "Login successfull");
             }
         }
 

@@ -133,18 +133,15 @@ namespace adsLibrarySolution
             LoginFlyout.IsOpen = true;
         }
 
-        private void MenuAddAdvert_Click(object sender, RoutedEventArgs e)
-        {
-            if (CurrentUser == null)
-            {
-                this.ShowMessageAsync("Alert", "There is no active sessions, login to continue");
+        private async void MenuAddAdvert_Click(object sender, RoutedEventArgs e) {
+            if (CurrentUser == null) {
+                await this.ShowMessageAsync("Alert", "There is no active sessions, login to continue");
+                LoginFlyout.IsOpen = true;
                 return;
             }
-            else
-            {
+            else {
                 AddingWindow addingWindow = new AddingWindow();
-                if(addingWindow.ShowDialog() == true)
-                {
+                if (addingWindow.ShowDialog() == true) {
                     Advert NewAdvert = new Advert();
                     NewAdvert.AdvertImageSource = addingWindow.TextBoxImageSource.Text;
                     NewAdvert.Author = CurrentUser;
@@ -158,15 +155,13 @@ namespace adsLibrarySolution
 
         }
 
-        private void MenuDeleteAdvert_Click(object sender, RoutedEventArgs e)
-        {
-            if (CurrentUser == null)
-            {
-                this.ShowMessageAsync("Alert", "There is no active sessions, login to continue");
-                return;    
+        private async void MenuDeleteAdvert_Click(object sender, RoutedEventArgs e) {
+            if (CurrentUser == null) {
+                await this.ShowMessageAsync("Alert", "There is no active sessions, login to continue");
+                LoginFlyout.IsOpen = true;
+                return;
             }
-            else
-            {
+            else {
                 DeletingWindow del = new DeletingWindow(Adverts, CurrentUser);
                 del.ShowDialog();
                 this.Adverts = del.LocalAdverts;

@@ -7,7 +7,10 @@
         xmlns:local="clr-namespace:adsLibrarySolution"
         mc:Ignorable="d"
         Closing="MetroWindow_Closed"
-        Title="Main Window" MinHeight="500" MinWidth="700">
+                      
+        Title="There is no active sessions, login to get your name here"               
+                      MinHeight="500" MinWidth="700"
+        >
 
     <Grid>
 
@@ -62,7 +65,7 @@
         </Menu>
 
 
-        <Controls:Flyout  Name="LoginFlyout" Grid.RowSpan="2" Position="Right" Width="250">
+        <Controls:Flyout  Name="LoginFlyout" Grid.RowSpan="2" Position="left" Width="250">
             <Grid Name="GridFlyoutInner">
 
                 <Grid.RowDefinitions>

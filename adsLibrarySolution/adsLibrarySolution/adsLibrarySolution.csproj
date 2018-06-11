@@ -125,9 +125,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="ClientsList.xml" />
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="AdvertsList.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

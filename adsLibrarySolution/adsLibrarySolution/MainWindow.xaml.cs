@@ -30,24 +30,29 @@ namespace adsLibrarySolution
         public int IDgenerator = 1;
         public MainWindow()
         {
-            
+
             InitializeComponent();
-            // LoginFlyout.IsOpen = true;
-            //   this.ShowMessageAsync("Alert", "andriy sosat"); // нахуй іди
+            LoginFlyout.IsOpen = true;
+            //this.ShowMessageAsync("Alert", "andriy sosat"); // нахуй іди
             string ClientListPath = System.IO.Path.Combine(Environment.CurrentDirectory, "ClientsList.xml");
             string AdvertListPath = System.IO.Path.Combine(Environment.CurrentDirectory, "AdvertsList.xml");
             XmlSerializer sClients = new XmlSerializer(typeof(List<Client>));
             XmlSerializer sAdverts = new XmlSerializer(typeof(List<Advert>));
             using (StreamReader sr = new StreamReader(ClientListPath))
             {
-                Clients = (sClients.Deserialize(sr))as List<Client>;
+                Clients = (sClients.Deserialize(sr)) as List<Client>;
             }
             using (StreamReader sr = new StreamReader(AdvertListPath))
             {
                 Adverts = (sAdverts.Deserialize(sr)) as List<Advert>;
             }
+            if (Clients.Count != 0)
+            {
+                LabelLastUserName.Content = Clients.Last().Name;
+                LabelLastUserMail.Content = Clients.Last().Email;
+            }
             ListViewMain.ItemsSource = Adverts;
-           // this.Title = CurrentUser.Name;
+    
 
 
 
@@ -173,7 +178,11 @@ namespace adsLibrarySolution
 
         private void ButtonLoginLast_Click(object sender, RoutedEventArgs e)
         {
-            
+            if(TextBoxLoginPassLast.Text==Clients.Last().Password)
+            {
+                CurrentUser = Clients.Last();
+                this.Title = CurrentUser.Name;
+            }
         }
 
         private void MetroWindow_Closed(object sender, EventArgs e)

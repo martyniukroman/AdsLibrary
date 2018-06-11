@@ -6,6 +6,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:adsLibrarySolution"
         mc:Ignorable="d"
+        Closing="MetroWindow_Closed"
         Title="Main Window" MinHeight="500" MinWidth="700">
 
     <Grid>

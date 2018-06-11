@@ -35,11 +35,12 @@ namespace adsLibrarySolution
 
             ListViewMain.ItemsSource = Adverts;
 
-           // Client Yalovenko = new Client() { Name = "Yalovenko Vitaliy", Email = "nerevit17@gmail.com", Password = "admin" };
-          //  Yalovenko.ID = IDgenerator;
-            //  CurrentUser = Yalovenko;
+            Client Yalovenko = new Client() { Name = "Yalovenko Vitaliy", Email = "nerevit17@gmail.com", Password = "admin" };
+            Yalovenko.ID = IDgenerator;
+            CurrentUser = Yalovenko;
+           // this.Title = CurrentUser.Name;
 
-          //  Clients.Add(Yalovenko);
+            //  Clients.Add(Yalovenko);
 
         }
 
@@ -54,12 +55,13 @@ namespace adsLibrarySolution
                     {
                         ClientFound = true;
                         this.ShowMessageAsync("Notification", "Login successfull.");
-                        LabelUntilLogin.Visibility = Visibility.Hidden;
                         TextBoxLoginMail.Text = "";
                         TextBoxLoginPass.Text = "";
                         CurrentUser = LoginClient;
                         LabelLastUserName.Content = CurrentUser.Name;
                         LabelLastUserMail.Content = CurrentUser.Email;
+                        LabelUntilLogin.Content = null;
+                        this.Title = CurrentUser.Name;
                         foreach (Advert Ad in Adverts)                                                            //looking for logged user adverts in list of adverts
                         {
                             if (Ad.Author.ID == LoginClient.ID)
@@ -67,9 +69,8 @@ namespace adsLibrarySolution
                                 if (Adverts != null)
                                 {
                                     ListViewMain.Items.Clear();
-
                                 }
-                                Adverts.Add(Ad);                     //adding logged on  user ads to ListView
+                                Adverts.Add(Ad);                     //adding logged on user ads to ListView
                             }
                         }
                     }
@@ -107,6 +108,8 @@ namespace adsLibrarySolution
                 TextBoxSingPass.Text = "";                                     //      clearing textboxes
                 TextBoxSingMail.Text = "";                                     //  -----------------------
                 Clients.Add(TempClient);                                       //adding client lo list of clients
+                CurrentUser = TempClient;
+                LabelUntilLogin = null;
                 this.ShowMessageAsync("Notification", "Sign up successfull");
             }
             else
@@ -124,6 +127,7 @@ namespace adsLibrarySolution
         {
             if (CurrentUser == null)
             {
+                this.Title = CurrentUser.Name;
                 this.ShowMessageAsync("Alert", "There is no active sessions, login to continue");
                 return;
             }
@@ -149,6 +153,7 @@ namespace adsLibrarySolution
         {
             if (CurrentUser == null)
             {
+                this.Title = CurrentUser.Name;
                 this.ShowMessageAsync("Alert", "There is no active sessions, login to continue");
                 return;
             }

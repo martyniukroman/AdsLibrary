@@ -35,17 +35,17 @@ namespace adsLibrarySolution
 
         private void TextBoxImageAdditional_TextChanged(object sender, TextChangedEventArgs e)
         {
-
+            LabelTitle.Content = (sender as TextBox).Text;
         }
 
         private void TextBoxImageSource_TextChanged(object sender, TextChangedEventArgs e)
         {
-
+            ImageSourcePrev.Source = new BitmapImage(new Uri(TextBoxImageSource.Text));
         }
 
         private void TextBoxTitle_TextChanged(object sender, TextChangedEventArgs e)
         {
-
+            LabelAdditional.Content = (sender as TextBox).Text;          
         }
     }
 }

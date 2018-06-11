@@ -109,7 +109,7 @@ namespace adsLibrarySolution
                 TextBoxSingMail.Text = "";                                     //  -----------------------
                 Clients.Add(TempClient);                                       //adding client lo list of clients
                 CurrentUser = TempClient;
-                LabelUntilLogin = null;
+                LabelUntilLogin.Content = "";
                 this.ShowMessageAsync("Notification", "Sign up successfull");
             }
             else

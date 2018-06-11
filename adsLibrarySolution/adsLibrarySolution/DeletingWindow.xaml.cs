@@ -20,5 +20,9 @@ namespace adsLibrarySolution {
         public DeletingWindow() {
             InitializeComponent();
         }
+
+        private void ButtonDelete_Click(object sender, RoutedEventArgs e) {
+
+        }
     }
 }

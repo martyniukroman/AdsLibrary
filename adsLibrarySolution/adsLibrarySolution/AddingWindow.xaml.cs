@@ -12,28 +12,39 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace adsLibrarySolution {
+namespace adsLibrarySolution
+{
     /// <summary>
     /// Interaction logic for AddingWindow.xaml
     /// </summary>
-    public partial class AddingWindow : Window {
-        public AddingWindow() {
+    public partial class AddingWindow : Window
+    {
+        public AddingWindow()
+        {
             InitializeComponent();
         }
 
-        private void ButtonReturn_Click(object sender, RoutedEventArgs e) {
+        private void ButtonReturn_Click(object sender, RoutedEventArgs e)
+        {
+            if (TextBoxImageAdditional.Text != "" && TextBoxTitle.Text != "" && TextBoxImageSource.Text != "")
+            {
+                DialogResult = true;
+                this.Close();
+            }
+        }
+
+        private void TextBoxImageAdditional_TextChanged(object sender, TextChangedEventArgs e)
+        {
 
         }
 
-        private void TextBoxImageAdditional_TextChanged(object sender, TextChangedEventArgs e) {
+        private void TextBoxImageSource_TextChanged(object sender, TextChangedEventArgs e)
+        {
 
         }
 
-        private void TextBoxImageSource_TextChanged(object sender, TextChangedEventArgs e) {
-
-        }
-
-        private void TextBoxTitle_TextChanged(object sender, TextChangedEventArgs e) {
+        private void TextBoxTitle_TextChanged(object sender, TextChangedEventArgs e)
+        {
 
         }
     }

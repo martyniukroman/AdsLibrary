@@ -28,17 +28,18 @@ namespace adsLibrarySolution
         public int IDgenerator = 1;
         public MainWindow()
         {
+            
             InitializeComponent();
             // LoginFlyout.IsOpen = true;
             //   this.ShowMessageAsync("Alert", "andriy sosat"); // нахуй іди
 
             ListViewMain.ItemsSource = Adverts;
 
-            Client Yalovenko = new Client() { Name = "Yalovenko Vitaliy", Email = "nerevit17@gmail.com", Password = "admin" };
-            Yalovenko.ID = IDgenerator;
-            CurrentUser = Yalovenko;
+           // Client Yalovenko = new Client() { Name = "Yalovenko Vitaliy", Email = "nerevit17@gmail.com", Password = "admin" };
+          //  Yalovenko.ID = IDgenerator;
+            //  CurrentUser = Yalovenko;
 
-            Clients.Add(Yalovenko);
+          //  Clients.Add(Yalovenko);
 
         }
 
@@ -52,16 +53,23 @@ namespace adsLibrarySolution
                     if (LoginClient.Email == TextBoxLoginMail.Text && LoginClient.Password == TextBoxLoginPass.Text)    //checking if login textboxes are filled
                     {
                         ClientFound = true;
-                        MessageBox.Show("Logon successfull!");
+                        this.ShowMessageAsync("Notification", "Login successfull.");
+                        LabelUntilLogin.Visibility = Visibility.Hidden;
+                        TextBoxLoginMail.Text = "";
+                        TextBoxLoginPass.Text = "";
+                        CurrentUser = LoginClient;
+                        LabelLastUserName.Content = CurrentUser.Name;
+                        LabelLastUserMail.Content = CurrentUser.Email;
                         foreach (Advert Ad in Adverts)                                                            //looking for logged user adverts in list of adverts
                         {
                             if (Ad.Author.ID == LoginClient.ID)
                             {
                                 if (Adverts != null)
                                 {
-                                    ListViewMain.Items.Add(Ad);                              //adding logged on  user ads to ListView
-                                }
+                                    ListViewMain.Items.Clear();
 
+                                }
+                                Adverts.Add(Ad);                     //adding logged on  user ads to ListView
                             }
                         }
                     }
@@ -69,19 +77,19 @@ namespace adsLibrarySolution
             }
             else if (TextBoxLoginMail.Text == "")
             {
-                MessageBox.Show("Please input your e-mail.");
+                this.ShowMessageAsync("Alert", "Please input your e-mail.");
             }
             else if (TextBoxLoginPass.Text == "")
             {
-                MessageBox.Show("Please input your password.");
+                this.ShowMessageAsync("Alert", "Please input your password.");
             }
             else
             {
-                MessageBox.Show("Please input your e-mail and password.");
+                this.ShowMessageAsync("Alert", "Please input your e-mail and password.");
             }
             if (ClientFound == false)
             {
-                MessageBox.Show("User with such email does not exist");
+                this.ShowMessageAsync("Alert", "User with such email does not exist");
             }
         }
 
@@ -91,8 +99,7 @@ namespace adsLibrarySolution
             if (TextBoxSingMail.Text != "" && TextBoxSingName.Text != "" && TextBoxSingPass.Text != "") //checking if all fields have data
             {
                 Client TempClient = new Client();                              //creating temp user
-                IDgenerator++;
-                TempClient.ID = IDgenerator;
+                TempClient.ID = ++IDgenerator;
                 TempClient.Email = TextBoxSingMail.Text;                       //  -----------------------
                 TempClient.Password = TextBoxSingPass.Text;                    //    copying data from text boxes
                 TempClient.Name = TextBoxSingName.Text;                        //  -----------------------
@@ -100,40 +107,60 @@ namespace adsLibrarySolution
                 TextBoxSingPass.Text = "";                                     //      clearing textboxes
                 TextBoxSingMail.Text = "";                                     //  -----------------------
                 Clients.Add(TempClient);                                       //adding client lo list of clients
-                MessageBox.Show("Sign up successfull");
+                this.ShowMessageAsync("Notification", "Sign up successfull");
             }
             else
             {
-                MessageBox.Show("All fields must be filled!");
+                this.ShowMessageAsync("Alert", "All fields must be filled!");
             }
         }
 
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
             LoginFlyout.IsOpen = true;
+        }
 
+        private void MenuAddAdvert_Click(object sender, RoutedEventArgs e)
+        {
+            if (CurrentUser == null)
+            {
+                this.ShowMessageAsync("Alert", "There is no active sessions, login to continue");
+                return;
+            }
+            else
+            {
+                AddingWindow addingWindow = new AddingWindow();
+                if(addingWindow.ShowDialog() == true)
+                {
+                    Advert NewAdvert = new Advert();
+                    NewAdvert.AdvertImageSource = addingWindow.TextBoxImageSource.Text;
+                    NewAdvert.Author = CurrentUser;
+                    NewAdvert.Header = addingWindow.TextBoxTitle.Text;
+                    NewAdvert.ID = ++IDgenerator;
+                    NewAdvert.Information = addingWindow.TextBoxImageAdditional.Text;
+                    Adverts.Add(NewAdvert);
+                    ListViewMain.Items.Refresh();
+                }
+            }
 
         }
 
-        private void MenuAddAdvert_Click(object sender, RoutedEventArgs e) {
-            if (CurrentUser == null) {
-                this.ShowMessageAsync("Alert", "There is no any active sessions, login to continue");
+        private void MenuDeleteAdvert_Click(object sender, RoutedEventArgs e)
+        {
+            if (CurrentUser == null)
+            {
+                this.ShowMessageAsync("Alert", "There is no active sessions, login to continue");
                 return;
             }
-            else {
+            else
+            {
 
             }
+        }
+
+        private void ButtonLoginLast_Click(object sender, RoutedEventArgs e)
+        {
             
-        }
-
-        private void MenuDeleteAdvert_Click(object sender, RoutedEventArgs e) {
-            if (CurrentUser == null) {
-                this.ShowMessageAsync("Alert", "There is no any active sessions, login to continue");
-                return;
-            }
-            else {
-
-            }
         }
     }
 }

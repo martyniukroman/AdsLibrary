@@ -1,4 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ArrayOfAdvert xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  
+  <Advert>
+    <ID>3</ID>
+    <Header>qwe</Header>
+    <Information>qwe</Information>
+    <AdvertImageSource>q</AdvertImageSource>
+    <Author>
+      <ID>2</ID>
+      <Name>qwe</Name>
+      <Email>qwe</Email>
+      <Password>123</Password>
+    </Author>
+  </Advert>
 </ArrayOfAdvert>

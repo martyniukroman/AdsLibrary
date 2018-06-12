@@ -36,6 +36,8 @@ namespace adsLibrarySolution
             //this.ShowMessageAsync("Alert", "andriy sosat"); // нахуй іди
             string ClientListPath = System.IO.Path.Combine(Environment.CurrentDirectory, "ClientsList.xml");
             string AdvertListPath = System.IO.Path.Combine(Environment.CurrentDirectory, "AdvertsList.xml");
+            File.Copy(ClientListPath, Environment.CurrentDirectory.Remove(Environment.CurrentDirectory.Length - 9, 9)+"ClientsList.xml",true);
+            File.Copy(AdvertListPath, Environment.CurrentDirectory.Remove(Environment.CurrentDirectory.Length - 9, 9) + "AdvertsList.xml", true);
             XmlSerializer sClients = new XmlSerializer(typeof(List<Client>));
             XmlSerializer sAdverts = new XmlSerializer(typeof(List<Advert>));
             using (StreamReader sr = new StreamReader(ClientListPath))

@@ -136,15 +136,17 @@
                                     <RowDefinition Height="50" />
                                     <RowDefinition Height="50" />
                                     <RowDefinition Height="50" />
+                                    <RowDefinition Height="50" />
                                     <RowDefinition Height="1*" />
                                     <RowDefinition Height="50" />
                                 </Grid.RowDefinitions>
 
                                 <Label Grid.Row="0" Foreground="GhostWhite " HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30">Create account</Label>
                                 <TextBox Name="TextBoxSingName" Grid.Row="1" Width="200" Height="30" FontSize="15" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="Name"/>
-                                <TextBox Name="TextBoxSingMail" Grid.Row="2" Width="200" Height="30" FontSize="15" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="Mail"/>
+                                <TextBox Name="TextBoxSingMail" Grid.Row="2" Width="200" Height="30" FontSize="15" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="Mail" TextChanged="TextBoxSingMail_TextChanged"/>
                                 <TextBox Name="TextBoxSingPass" Grid.Row="3" Width="200" Height="30" FontSize="15" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="Password"/>
-                                <Button Click="ButtonSingUp_Click" Grid.Row="5" Name="ButtonSingUp" FontSize="20" Width="150" Height="40" Style="{DynamicResource MetroFlatButton}" >Sign up</Button>
+                                <Label Name="LabelValidation" Grid.Row="4" Foreground="Gray" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" Visibility="Hidden">Invalid Email</Label>
+                                <Button Click="ButtonSingUp_Click" Grid.Row="6" Name="ButtonSingUp" FontSize="20" Width="150" Height="40" Style="{DynamicResource MetroFlatButton}" >Sign up</Button>
 
                             </Grid>
                         </TabItem.Content>

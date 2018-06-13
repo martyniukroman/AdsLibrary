@@ -12,4 +12,16 @@
       <Password>123</Password>
     </Author>
   </Advert>
+  <Advert>
+    <ID>3</ID>
+    <Header>Lol</Header>
+    <Information>Kek</Information>
+    <AdvertImageSource>http://loveourlaughs.com/wp-content/uploads/2016/09/lol.png</AdvertImageSource>
+    <Author>
+      <ID>2</ID>
+      <Name>yal</Name>
+      <Email>yal</Email>
+      <Password>yal</Password>
+    </Author>
+  </Advert>
 </ArrayOfAdvert>

@@ -202,5 +202,17 @@ namespace adsLibrarySolution
             }
 
         }
+
+        private void TextBoxSingMail_TextChanged(object sender, TextChangedEventArgs e) {
+            if (!(sender as TextBox).Text.Contains("@") || !(sender as TextBox).Text.Contains(".")) {
+                LabelValidation.Content = "Invalid Email";
+                LabelValidation.Visibility = Visibility.Visible;
+                ButtonSingUp.IsEnabled = false;
+            }
+            else {
+                LabelValidation.Visibility = Visibility.Hidden;
+                ButtonSingUp.IsEnabled = true;
+            }
+        }
     }
 }

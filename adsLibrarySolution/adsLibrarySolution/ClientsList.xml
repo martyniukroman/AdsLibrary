@@ -6,4 +6,10 @@
     <Email>qwe</Email>
     <Password>123</Password>
   </Client>
+  <Client>
+    <ID>2</ID>
+    <Name>yal</Name>
+    <Email>yal</Email>
+    <Password>yal</Password>
+  </Client>
 </ArrayOfClient>

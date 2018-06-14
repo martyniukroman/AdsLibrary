@@ -19,9 +19,11 @@ namespace adsLibrarySolution
     /// </summary>
     public partial class AddingWindow : Window
     {
+        public Advert ad = new Advert();  
         public AddingWindow()
         {
             InitializeComponent();
+            this.DataContext = ad;
         }
 
         private void ButtonReturn_Click(object sender, RoutedEventArgs e)

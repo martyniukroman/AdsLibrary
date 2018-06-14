@@ -148,6 +148,7 @@ namespace adsLibrarySolution
                     Adverts.Add(NewAdvert);
                     ListViewMain.Items.Refresh();
                 }
+               
             }
 
         }
@@ -173,6 +174,7 @@ namespace adsLibrarySolution
                 this.Title = CurrentUser.Name;
                 LabelUntilLogin.Content = "";
             }
+            LoginFlyout.IsOpen = false;
         }
 
         private void MetroWindow_Closed(object sender, EventArgs e)

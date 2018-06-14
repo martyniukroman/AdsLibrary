@@ -9,6 +9,7 @@ namespace ConsoleApplicationDb {
     class Program {
 
         public void AddToDB(SqlConnection connection) {
+
             string name, email;
 
             Console.Write("Enter name: ");
@@ -56,7 +57,7 @@ namespace ConsoleApplicationDb {
 
        public static void Main(string[] args) {
 
-            string connectionString = "Data Source=92.52.130.3;Initial Catalog=sexx;User ID=test;Password=qwe123";
+            string connectionString = "Data Source=92.52.130.3;Initial Catalog=sexx;User ID=user;Password=qwe123";
 
             using(SqlConnection connection = new SqlConnection(connectionString)) {
                 connection.Open();

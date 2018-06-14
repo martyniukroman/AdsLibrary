@@ -18,4 +18,10 @@
     <Email>andrei.usmanaev@gmail.com</Email>
     <Password>123</Password>
   </Client>
+  <Client>
+    <ID>2</ID>
+    <Name>loh</Name>
+    <Email>loh@com.ru</Email>
+    <Password>1</Password>
+  </Client>
 </ArrayOfClient>

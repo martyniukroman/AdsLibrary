@@ -36,7 +36,7 @@
         </Border>
 
         <Label HorizontalAlignment="Center" Foreground="Gray" FontSize="20" Grid.Row="0" Grid.Column="1">Title</Label>
-        <TextBox VerticalAlignment="Bottom" Name="TextBoxTitle" Width="150" Height="20" Grid.Column="1"></TextBox>
+        <TextBox Text="{Binding Header,ValidatesOnDataErrors=True,UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Bottom" Name="TextBoxTitle" Width="150" Height="20" Grid.Column="1"></TextBox>
 
         <Label HorizontalAlignment="Center" Foreground="Gray" FontSize="20" Grid.Row="1" Grid.Column="1">Image Source</Label>
         <TextBox TextChanged="TextBoxImageSource_TextChanged" VerticalAlignment="Bottom" Name="TextBoxImageSource" Width="150" Height="20" Grid.Row="1" Grid.Column="1"></TextBox>

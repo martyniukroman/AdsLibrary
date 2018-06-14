@@ -195,7 +195,6 @@ namespace adsLibrarySolution
                     sAdverts.Serialize(sw, Adverts);
                 }
             }
-
         }
 
         private void TextBoxSingMail_TextChanged(object sender, TextChangedEventArgs e) {
@@ -203,6 +202,7 @@ namespace adsLibrarySolution
                 LabelValidation.Content = "Invalid Email";
                 LabelValidation.Visibility = Visibility.Visible;
                 ButtonSingUp.IsEnabled = false;
+                LabelValidation.Foreground = new SolidColorBrush(Colors.OrangeRed);
             }
             else {
                 LabelValidation.Visibility = Visibility.Hidden;

@@ -75,6 +75,7 @@ namespace adsLibrarySolution
                         LabelLastUserName.Content = CurrentUser.Name;
                         LabelLastUserMail.Content = CurrentUser.Email;
                         this.Title = CurrentUser.Name;
+                       
                         //foreach (Advert Ad in Adverts)                                                            //looking for logged user adverts in list of adverts
                         //{
                         //    if (Ad.Author.ID == LoginClient.ID)
@@ -89,17 +90,11 @@ namespace adsLibrarySolution
                     }
                 }
             }
-            else if (TextBoxLoginMail.Text == "")
-            {
-                this.ShowMessageAsync("Alert", "Please input your e-mail.");
-            }
-            else if (TextBoxLoginPass.Text == "")
-            {
-                this.ShowMessageAsync("Alert", "Please input your password.");
-            }
-            else
+
+            else  if(TextBoxLoginMail.Text=="" || TextBoxLoginPass.Text=="")
             {
                 this.ShowMessageAsync("Alert", "Please input your e-mail and password.");
+                ClientFound = true;
             }
             if (ClientFound == false)
             {
